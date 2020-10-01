@@ -26,8 +26,10 @@ namespace MetadataReader
 
             var pngResult = PNGChecker(data) ? "File is a png." : "File is not a png.";
             var bmpResult = BMPChecker(data) ? "File is a bmp." : "File is not a bmp.";
-            BMPResolution(fileStream);
+            
             Console.WriteLine($"{pngResult}\n{bmpResult}");
+            
+            BMPResolution(fileStream);
 
 
         }
@@ -67,7 +69,6 @@ namespace MetadataReader
             var data = new byte[8];
 
             fileStream.Read(data, 0, 8);
-            //fileStream.Close();
 
             return data;
         }
@@ -80,8 +81,8 @@ namespace MetadataReader
             fileStream.Read(data, 0, 8);
             fileStream.Close();
             //Shifting by one byte to get the decimal value for width and height.
-            int width = data[0]  + (data[1] << 8) + (data[2] << 16) + (data[3] << 32);
-            int height = data[4] + (data[5] << 8) + (data[6] << 16) + (data[7] << 32);
+            int width = data[0]  + (data[1] << 8) + (data[2] << 16) + (data[3] << 24);
+            int height = data[4] + (data[5] << 8) + (data[6] << 16) + (data[7] << 24);
 
             Console.WriteLine($"The resolution is: {width}x{height}.");
 
