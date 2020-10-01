@@ -75,24 +75,15 @@ namespace MetadataReader
         static void BMPResolution(FileStream fileStream)
         {
             var data = new byte[8];
-            var width = "";
-            var height = "";
 
             fileStream.Seek(18, SeekOrigin.Begin);
             fileStream.Read(data, 0, 8);
             fileStream.Close();
+            //Shifting by one byte to get the decimal value for width and height.
+            int width = data[0]  + (data[1] << 8) + (data[2] << 16) + (data[3] << 32);
+            int height = data[4] + (data[5] << 8) + (data[6] << 16) + (data[7] << 32);
 
-            //Separates the dimensions to a width and height byte array.
-            for (int i = 3; i > -1; i--)
-            {
-                width += data[i].ToString("X2");
-                height += data[i + 4].ToString("X2");
-            }
-
-            int x = Convert.ToInt32(width, 16);
-            int y = Convert.ToInt32(height, 16);
-
-            Console.WriteLine($"The resolution is: {x}x{y}.");
+            Console.WriteLine($"The resolution is: {width}x{height}.");
 
         }
 
