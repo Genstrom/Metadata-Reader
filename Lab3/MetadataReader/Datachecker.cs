@@ -6,51 +6,43 @@ namespace MetadataReader
 {
     public enum Filetypes
     {
-        Png,
-        Bmp,
+        PNG,
+        BMP,
         Invalid
     }
-    public class Datachecker
+    public static class Datachecker
     {
-        private readonly byte[] _bmpSignature;
-        private readonly byte[] _pngSignature;
+        private static readonly byte[] _bmpSignature = new byte[] { 0x42, 0x4D };
+        private static readonly byte[] _pngSignature = new byte[] { 0x89, 0x50, 0x4E, 0x47, 0x0D, 0x0A, 0x1A, 0x0A };
 
 
-        public Datachecker()
+
+
+
+        public static Filetypes FileChecker(byte[] data)
         {
-            _pngSignature = new byte[] { 0x89, 0x50, 0x4E, 0x47, 0x0D, 0x0A, 0x1A, 0x0A };
-            _bmpSignature = new byte[] { 0x42, 0x4D };
-        }
-
-
-        public Enum FileChecker(byte[] data)
-        {
-            switch (data.Length)
+            switch (data[0])
             {
-                case 8:
+                case 0x89:
                     {
-                        for (var i = 0; i < data.Length; i++)
+                        for (var i = 0; i < _pngSignature.Length; i++)
                         {
                             if (data[i] != _pngSignature[i])
-                                return (Filetypes)3;
-                            return (Filetypes)1;
+                                return Filetypes.Invalid;
                         }
-
-                        break;
+                        return Filetypes.PNG;
                     }
-                case 2:
-                    for (var i = 0; i < data.Length; i++)
+                case 0x42:
+                    for (var i = 0; i < _bmpSignature.Length; i++)
                     {
                         if (data[i] != _bmpSignature[i])
-
-                            return (Filetypes)3;
-                        return (Filetypes)2;
+                            return Filetypes.Invalid;
                     }
-
-                    break;
+                    return Filetypes.BMP;
+                
+                default:
+                    return Filetypes.Invalid;
             }
-
-            return (Filetypes)3;
         }
     }
 }
