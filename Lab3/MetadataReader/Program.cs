@@ -12,53 +12,42 @@ namespace MetadataReader
 
             //BMP = LSB = Little Endian
 
-            //PNG files: banana, mushroom, poop
+            //PNG files: banana, mushroom, poop = 640x616
             //BMP files: rpg, buck, meta
 
 
             //Console.WriteLine("Input filepath to be read: ");
             //string path = Console.ReadLine();
 
-            var fileStream = new FileStream(@"C:\Users\Tommy\Desktop\Labbar\Lab3\Pictures\rpg.bmp", FileMode.Open);
-            Enum Invalid = (Filetypes)2;
+            if (args.Length != 0)
+            {
+                RunProgram(args[0]);
+            }
+            else
+            {
+                RunProgram(@"C:\Users\Tommy\Desktop\Labbar\Lab3\Pictures\poop.png");
+            }
+        }
 
-            byte[] data = ReadFileData(fileStream);
+        static void RunProgram(string path)
+        {
+            if (!File.Exists(path))
+            {
+                Console.WriteLine("File not found!");
+            }
+            var fileStream = new FileStream(path, FileMode.Open);
+
+            byte[] data = Datachecker.ReadFileData(fileStream);
 
             var fileResult = Datachecker.FileChecker(data);
-            var s = !Equals(fileResult, Invalid)
-                ? $"This file is a {fileResult}"
+            var s = !Equals(fileResult, Filetypes.Invalid)
+                ? $"This file is a {fileResult}."
                 : $"This file is invalid!";
 
             Console.WriteLine($"{s}");
-            
-            BMPResolution(fileStream);
 
-
-        }
-
-        
-        static byte[] ReadFileData(FileStream fileStream)
-        {
-            var data = new byte[8];
-
-            fileStream.Read(data, 0, 8);
-
-            return data;
-        }
-
-        static void BMPResolution(FileStream fileStream)
-        {
-            var data = new byte[8];
-
-            fileStream.Seek(18, SeekOrigin.Begin);
-            fileStream.Read(data, 0, 8);
-            fileStream.Close();
-            //Shifting by one byte to get the decimal value for width and height.
-            int width = data[0]  + (data[1] << 8) + (data[2] << 16) + (data[3] << 24);
-            int height = data[4] + (data[5] << 8) + (data[6] << 16) + (data[7] << 24);
-
-            Console.WriteLine($"The resolution is: {width}x{height}.");
-
+            Datachecker.GetResolution(fileStream, fileResult);
+            Datachecker.GetChunkInfo(fileStream);
         }
     }
 }
