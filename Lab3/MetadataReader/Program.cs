@@ -6,26 +6,16 @@ namespace MetadataReader
     class Program
     {
         static void Main(string[] args)
-        {
-            //The first eight bytes of a PNG datastream always contain the following (decimal) values:
-            //137 80 78 71 13 10 26 10 => Hex: 89 50 4E 47 0D 0A 1A 0A
-
-            //BMP = LSB = Little Endian
-
-            //PNG files: banana, mushroom, poop = 640x616
-            //BMP files: rpg, buck, meta
-
-
-            //Console.WriteLine("Input filepath to be read: ");
-            //string path = Console.ReadLine();
-
+        { 
             if (args.Length != 0)
             {
                 RunProgram(args[0]);
             }
             else
             {
-                RunProgram(@"C:\Users\Tommy\Desktop\Labbar\Lab3\Pictures\poop.png");
+                Console.WriteLine("Input filepath to be read: ");
+                string path = Console.ReadLine();
+                RunProgram(path);
             }
         }
 
