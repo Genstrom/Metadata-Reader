@@ -1,24 +1,26 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\tommy\\Desktop\\Labbar\\Lab3\\Lab3\\MetadataReader\\MetadataReader.csproj": {}
+    "C:\\Users\\Tommy\\Desktop\\Labbar\\Lab3\\Lab3\\MetadataReader\\MetadataReader.csproj": {}
   },
   "projects": {
-    "C:\\Users\\tommy\\Desktop\\Labbar\\Lab3\\Lab3\\MetadataReader\\MetadataReader.csproj": {
+    "C:\\Users\\Tommy\\Desktop\\Labbar\\Lab3\\Lab3\\MetadataReader\\MetadataReader.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\tommy\\Desktop\\Labbar\\Lab3\\Lab3\\MetadataReader\\MetadataReader.csproj",
+        "projectUniqueName": "C:\\Users\\Tommy\\Desktop\\Labbar\\Lab3\\Lab3\\MetadataReader\\MetadataReader.csproj",
         "projectName": "MetadataReader",
-        "projectPath": "C:\\Users\\tommy\\Desktop\\Labbar\\Lab3\\Lab3\\MetadataReader\\MetadataReader.csproj",
-        "packagesPath": "C:\\Users\\tommy\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\tommy\\Desktop\\Labbar\\Lab3\\Lab3\\MetadataReader\\obj\\",
+        "projectPath": "C:\\Users\\Tommy\\Desktop\\Labbar\\Lab3\\Lab3\\MetadataReader\\MetadataReader.csproj",
+        "packagesPath": "C:\\Users\\Tommy\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Tommy\\Desktop\\Labbar\\Lab3\\Lab3\\MetadataReader\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
+          "C:\\Microsoft\\Xamarin\\NuGet\\",
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\tommy\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\Tommy\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
