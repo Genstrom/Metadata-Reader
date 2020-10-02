@@ -88,39 +88,24 @@ namespace MetadataReader
         public static void GetChunkInfo(FileStream fileStream)
         {
 
-            var file = new byte[fileStream.Length];
             var sizeArray = new byte[4];
             var typeArray = new byte[4];
-            var type = "";
+            var typeString = "";
             var size = 0;
-            var sizeNow = 0;
+            var offset = 8;
 
-            fileStream.Seek(8, SeekOrigin.Begin);
-            fileStream.Read(sizeArray, 0, 4);
-            fileStream.Seek(12, SeekOrigin.Begin);
-            fileStream.Read(typeArray, 0, 4);
 
-            size = 12 + (sizeArray[3] + (sizeArray[2] << 8) + (sizeArray[1] << 16) + (sizeArray[0] << 24));
-            //size = +12 + sizeArray[0] + sizeArray[1] + sizeArray[2] + sizeArray[3];
-            //sizeNow = size;
-            type = Encoding.ASCII.GetString(typeArray);
-
-            Console.WriteLine($"Chunk type/name: {type}, chunksize: {size} bytes.");
-
-            size += 8;
-
-            while(sizeNow + size < fileStream.Length)
+            while(offset + size < fileStream.Length)
             {
-                fileStream.Seek(sizeNow + size, SeekOrigin.Begin);
+                fileStream.Seek(offset + size, SeekOrigin.Begin);
                 fileStream.Read(sizeArray, 0, 4);
-                fileStream.Seek(sizeNow + size + 4, SeekOrigin.Begin);
                 fileStream.Read(typeArray, 0, 4);
-                sizeNow += size;
+                offset += size;
 
                 size = 12 + (sizeArray[3] + (sizeArray[2] << 8) + (sizeArray[1] << 16) + (sizeArray[0] << 24));
-                type = Encoding.ASCII.GetString(typeArray);
+                typeString = Encoding.ASCII.GetString(typeArray);
 
-                Console.WriteLine($"Chunk type/name: {type}, chunksize: {size} bytes.");
+                Console.WriteLine($"Chunk type/name: {typeString}, chunksize: {size} bytes.");
 
 
             }
