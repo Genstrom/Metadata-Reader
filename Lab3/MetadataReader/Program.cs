@@ -20,14 +20,16 @@ namespace MetadataReader
             //string path = Console.ReadLine();
 
             var fileStream = new FileStream(@"C:\Users\Tommy\Desktop\Labbar\Lab3\Pictures\rpg.bmp", FileMode.Open);
-
+            Enum Invalid = (Filetypes)2;
 
             byte[] data = ReadFileData(fileStream);
 
-            var pngResult = PNGChecker(data) ? "File is a png." : "File is not a png.";
-            var bmpResult = BMPChecker(data) ? "File is a bmp." : "File is not a bmp.";
-            
-            Console.WriteLine($"{pngResult}\n{bmpResult}");
+            var fileResult = Datachecker.FileChecker(data);
+            var s = !Equals(fileResult, Invalid)
+                ? $"This file is a {fileResult}"
+                : $"This file is invalid!";
+
+            Console.WriteLine($"{s}");
             
             BMPResolution(fileStream);
 
