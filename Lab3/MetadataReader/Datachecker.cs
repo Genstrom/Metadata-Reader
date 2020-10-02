@@ -93,28 +93,31 @@ namespace MetadataReader
             var typeArray = new byte[4];
             var type = "";
             var size = 0;
-            var sizeNow = 8;
+            var sizeNow = 0;
 
             fileStream.Seek(8, SeekOrigin.Begin);
             fileStream.Read(sizeArray, 0, 4);
             fileStream.Seek(12, SeekOrigin.Begin);
             fileStream.Read(typeArray, 0, 4);
 
-            size = +12 + sizeArray[0] + sizeArray[1] + sizeArray[2] + sizeArray[3];
+            size = 12 + (sizeArray[3] + (sizeArray[2] << 8) + (sizeArray[1] << 16) + (sizeArray[0] << 24));
+            //size = +12 + sizeArray[0] + sizeArray[1] + sizeArray[2] + sizeArray[3];
             //sizeNow = size;
             type = Encoding.ASCII.GetString(typeArray);
 
             Console.WriteLine($"Chunk type/name: {type}, chunksize: {size} bytes.");
 
-            for (int i = 0; i < fileStream.Length; i++)
+            size += 8;
+
+            while(sizeNow + size < fileStream.Length)
             {
                 fileStream.Seek(sizeNow + size, SeekOrigin.Begin);
                 fileStream.Read(sizeArray, 0, 4);
                 fileStream.Seek(sizeNow + size + 4, SeekOrigin.Begin);
                 fileStream.Read(typeArray, 0, 4);
-                sizeNow = size;
+                sizeNow += size;
 
-                size = +12 + sizeArray[0] + sizeArray[1] + sizeArray[2] + sizeArray[3];
+                size = 12 + (sizeArray[3] + (sizeArray[2] << 8) + (sizeArray[1] << 16) + (sizeArray[0] << 24));
                 type = Encoding.ASCII.GetString(typeArray);
 
                 Console.WriteLine($"Chunk type/name: {type}, chunksize: {size} bytes.");

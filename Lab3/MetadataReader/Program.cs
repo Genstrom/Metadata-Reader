@@ -25,7 +25,7 @@ namespace MetadataReader
             }
             else
             {
-                RunProgram(@"C:\Users\Tommy\Desktop\Labbar\Lab3\Pictures\poop.png");
+                RunProgram(@"C:\Users\Tommy\Desktop\Labbar\Lab3\Pictures\banana.png");
             }
         }
 
