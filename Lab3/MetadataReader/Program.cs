@@ -36,36 +36,7 @@ namespace MetadataReader
 
         }
 
-        static bool PNGChecker(byte[] data)
-        {
-            var pngSignature = new byte[] { 0x89, 0x50, 0x4E, 0x47, 0x0D, 0x0A, 0x1A, 0x0A };
-
-            for (int i = 0; i < 8; i++)
-            {
-                if (data[i] != pngSignature[i])
-                {
-                    return false;
-                }
-            }
-
-            return true;
-        }
-
-        static bool BMPChecker(byte[] data)
-        {
-            var BMPSignature = new byte[] { 0x42, 0x4D };
-
-            for (int i = 0; i < 2; i++)
-            {
-                if (data[i] != BMPSignature[i])
-                {
-                    return false;
-                }
-            }
-
-            return true;
-        }
-
+        
         static byte[] ReadFileData(FileStream fileStream)
         {
             var data = new byte[8];
@@ -89,7 +60,5 @@ namespace MetadataReader
             Console.WriteLine($"The resolution is: {width}x{height}.");
 
         }
-
-
     }
 }
