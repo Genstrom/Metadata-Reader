@@ -39,7 +39,6 @@ namespace MetadataReader
             if (!File.Exists(path))
             {
                 Console.WriteLine("File not found!");
-                return;
             }
             var fileStream = new FileStream(path, FileMode.Open);
 
