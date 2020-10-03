@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Gabriel\\Desktop\\This is where I put my labs\\Lab3\\MetadataReader\\MetadataReader.csproj": {}
+    "C:\\Users\\Gabriel\\Desktop\\labmapp\\Lab3\\MetadataReader\\MetadataReader.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Gabriel\\Desktop\\This is where I put my labs\\Lab3\\MetadataReader\\MetadataReader.csproj": {
+    "C:\\Users\\Gabriel\\Desktop\\labmapp\\Lab3\\MetadataReader\\MetadataReader.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Gabriel\\Desktop\\This is where I put my labs\\Lab3\\MetadataReader\\MetadataReader.csproj",
+        "projectUniqueName": "C:\\Users\\Gabriel\\Desktop\\labmapp\\Lab3\\MetadataReader\\MetadataReader.csproj",
         "projectName": "MetadataReader",
-        "projectPath": "C:\\Users\\Gabriel\\Desktop\\This is where I put my labs\\Lab3\\MetadataReader\\MetadataReader.csproj",
+        "projectPath": "C:\\Users\\Gabriel\\Desktop\\labmapp\\Lab3\\MetadataReader\\MetadataReader.csproj",
         "packagesPath": "C:\\Users\\Gabriel\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Gabriel\\Desktop\\This is where I put my labs\\Lab3\\MetadataReader\\obj\\",
+        "outputPath": "C:\\Users\\Gabriel\\Desktop\\labmapp\\Lab3\\MetadataReader\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Gabriel\\AppData\\Roaming\\NuGet\\NuGet.Config",

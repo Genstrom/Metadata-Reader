@@ -11,7 +11,7 @@ namespace MetadataReader
         Invalid
     }
 
-    public static class Datachecker
+    public static class DataChecker
     {
         private static readonly byte[] BmpSignature = {0x42, 0x4D};
         private static readonly byte[] PngSignature = {0x89, 0x50, 0x4E, 0x47, 0x0D, 0x0A, 0x1A, 0x0A};
