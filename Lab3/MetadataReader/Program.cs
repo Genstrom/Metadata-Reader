@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Threading;
 
 namespace MetadataReader
 {
@@ -28,7 +29,9 @@ namespace MetadataReader
 
             catch (Exception)
             {
-                Console.WriteLine("Please insert a proper path from your computer");
+                Thread.Sleep(1000);
+                Console.Clear();
+                Console.WriteLine("Please insert a proper path from your computer: ");
                 path = Console.ReadLine();
                 PathChecker(path);
             }

@@ -84,6 +84,7 @@ namespace MetadataReader
             var typeArray = new byte[4];
             var size = 0;
             var offset = 8;
+            var chunkNumber = 1;
 
 
             while (offset + size < fileStream.Length)
@@ -96,7 +97,8 @@ namespace MetadataReader
                 size = 12 + sizeArray[3] + (sizeArray[2] << 8) + (sizeArray[1] << 16) + (sizeArray[0] << 24);
                 var typeString = Encoding.ASCII.GetString(typeArray);
 
-                Console.WriteLine($"Chunk type/name: {typeString}, chunksize: {size} bytes.");
+                Console.WriteLine($"Chunk {chunkNumber}: type/name: {typeString}, chunksize: {size} bytes.");
+                chunkNumber++;
             }
         }
     }
