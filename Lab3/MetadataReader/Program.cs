@@ -21,7 +21,11 @@ namespace MetadataReader
 
         private static void RunProgram(string path)
         {
-            if (!File.Exists(path)) Console.WriteLine("File not found!");
+            if (!File.Exists(path))
+            {
+                Console.WriteLine("File not found!");
+                return;
+            }
             var fileStream = new FileStream(path, FileMode.Open);
 
             var data = Datachecker.ReadFileData(fileStream);
