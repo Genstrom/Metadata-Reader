@@ -10,30 +10,27 @@ namespace MetadataReader
         BMP,
         Invalid
     }
+
     public static class Datachecker
     {
-        private static readonly byte[] _bmpSignature = new byte[] { 0x42, 0x4D };
-        private static readonly byte[] _pngSignature = new byte[] { 0x89, 0x50, 0x4E, 0x47, 0x0D, 0x0A, 0x1A, 0x0A };
+        private static readonly byte[] BmpSignature = {0x42, 0x4D};
+        private static readonly byte[] PngSignature = {0x89, 0x50, 0x4E, 0x47, 0x0D, 0x0A, 0x1A, 0x0A};
 
         public static Filetypes FileChecker(byte[] data)
         {
             switch (data[0])
             {
                 case 0x89:
-                    {
-                        for (var i = 0; i < _pngSignature.Length; i++)
-                        {
-                            if (data[i] != _pngSignature[i])
-                                return Filetypes.Invalid;
-                        }
-                        return Filetypes.PNG;
-                    }
-                case 0x42:
-                    for (var i = 0; i < _bmpSignature.Length; i++)
-                    {
-                        if (data[i] != _bmpSignature[i])
+                {
+                    for (var i = 0; i < PngSignature.Length; i++)
+                        if (data[i] != PngSignature[i])
                             return Filetypes.Invalid;
-                    }
+                    return Filetypes.PNG;
+                }
+                case 0x42:
+                    for (var i = 0; i < BmpSignature.Length; i++)
+                        if (data[i] != BmpSignature[i])
+                            return Filetypes.Invalid;
                     return Filetypes.BMP;
 
                 default:
@@ -69,11 +66,7 @@ namespace MetadataReader
 
                     Console.WriteLine($"The resolution is: {width}x{height}.");
                     break;
-
-                default:
-                    break;
             }
-
         }
 
         public static byte[] ReadFileData(FileStream fileStream)
@@ -87,31 +80,24 @@ namespace MetadataReader
 
         public static void GetChunkInfo(FileStream fileStream)
         {
-
             var sizeArray = new byte[4];
             var typeArray = new byte[4];
-            var typeString = "";
             var size = 0;
             var offset = 8;
 
 
-            while(offset + size < fileStream.Length)
+            while (offset + size < fileStream.Length)
             {
                 fileStream.Seek(offset + size, SeekOrigin.Begin);
                 fileStream.Read(sizeArray, 0, 4);
                 fileStream.Read(typeArray, 0, 4);
                 offset += size;
 
-                size = 12 + (sizeArray[3] + (sizeArray[2] << 8) + (sizeArray[1] << 16) + (sizeArray[0] << 24));
-                typeString = Encoding.ASCII.GetString(typeArray);
+                size = 12 + sizeArray[3] + (sizeArray[2] << 8) + (sizeArray[1] << 16) + (sizeArray[0] << 24);
+                var typeString = Encoding.ASCII.GetString(typeArray);
 
                 Console.WriteLine($"Chunk type/name: {typeString}, chunksize: {size} bytes.");
-
-
             }
-
-
         }
     }
 }
-
