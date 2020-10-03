@@ -57,6 +57,7 @@ namespace MetadataReader
 
             DataChecker.GetResolution(fileStream, fileResult);
             DataChecker.GetChunkInfo(fileStream);
+            Console.ReadKey();
         }
     }
 }
