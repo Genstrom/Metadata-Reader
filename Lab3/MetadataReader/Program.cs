@@ -15,7 +15,22 @@ namespace MetadataReader
             {
                 Console.WriteLine("Input filepath to be read: ");
                 var path = Console.ReadLine();
+                RunFile(path);
+            }
+        }
+
+        private static void RunFile(string path)
+        {
+            try
+            {
                 RunProgram(path);
+            }
+
+            catch (Exception)
+            {
+                Console.WriteLine("Please insert a proper path from your computer");
+                path = Console.ReadLine();
+                RunFile(path);
             }
         }
 
