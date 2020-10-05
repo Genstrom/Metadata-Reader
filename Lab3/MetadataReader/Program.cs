@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Threading;
 
 namespace MetadataReader
 {
@@ -15,6 +16,7 @@ namespace MetadataReader
             {
                 Console.WriteLine("Input filepath to be read: ");
                 var path = Console.ReadLine();
+                Console.WriteLine();
                 PathChecker(path);
             }
         }
@@ -28,7 +30,9 @@ namespace MetadataReader
 
             catch (Exception)
             {
-                Console.WriteLine("Please insert a proper path from your computer");
+                Thread.Sleep(1000);
+                Console.Clear();
+                Console.WriteLine("Please insert a proper path from your computer: ");
                 path = Console.ReadLine();
                 PathChecker(path);
             }
@@ -46,14 +50,13 @@ namespace MetadataReader
 
             var fileResult = DataChecker.FileChecker(data);
             var fileResultString = !Equals(fileResult, Filetypes.Invalid)
-                ? $"This file is a {fileResult}."
+                ? $"This file is a {fileResult}.\n"
                 : "This file is invalid!";
-
 
             Console.WriteLine($"{fileResultString}");
 
             DataChecker.GetResolution(fileStream, fileResult);
-            DataChecker.GetChunkInfo(fileStream);
+            Console.ReadKey();
         }
     }
 }

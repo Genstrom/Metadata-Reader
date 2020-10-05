@@ -1,21 +1,26 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Gabriel\\Desktop\\labmapp\\Lab3\\MetadataReader\\MetadataReader.csproj": {}
+    "C:\\Users\\Tommy\\Desktop\\Labbar\\Lab3\\Lab3\\MetadataReader\\MetadataReader.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Gabriel\\Desktop\\labmapp\\Lab3\\MetadataReader\\MetadataReader.csproj": {
+    "C:\\Users\\Tommy\\Desktop\\Labbar\\Lab3\\Lab3\\MetadataReader\\MetadataReader.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Gabriel\\Desktop\\labmapp\\Lab3\\MetadataReader\\MetadataReader.csproj",
+        "projectUniqueName": "C:\\Users\\Tommy\\Desktop\\Labbar\\Lab3\\Lab3\\MetadataReader\\MetadataReader.csproj",
         "projectName": "MetadataReader",
-        "projectPath": "C:\\Users\\Gabriel\\Desktop\\labmapp\\Lab3\\MetadataReader\\MetadataReader.csproj",
-        "packagesPath": "C:\\Users\\Gabriel\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Gabriel\\Desktop\\labmapp\\Lab3\\MetadataReader\\obj\\",
+        "projectPath": "C:\\Users\\Tommy\\Desktop\\Labbar\\Lab3\\Lab3\\MetadataReader\\MetadataReader.csproj",
+        "packagesPath": "C:\\Users\\Tommy\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Tommy\\Desktop\\Labbar\\Lab3\\Lab3\\MetadataReader\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Microsoft\\Xamarin\\NuGet\\",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\Gabriel\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\Tommy\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
@@ -52,7 +57,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.302\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.402\\RuntimeIdentifierGraph.json"
         }
       }
     }
