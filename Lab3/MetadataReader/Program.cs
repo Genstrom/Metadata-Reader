@@ -8,42 +8,37 @@ namespace MetadataReader
     {
         private static void Main(string[] args)
         {
+            RunProgram(PathChecker(args));
+        }
+
+        private static string PathChecker(string[] args)
+        {
+            string path;
+
             if (args.Length != 0)
             {
-                PathChecker(args[0]);
+                path = args[0];
             }
             else
             {
                 Console.WriteLine("Input filepath to be read: ");
-                var path = Console.ReadLine();
-                Console.WriteLine();
-                PathChecker(path);
-            }
-        }
-
-        private static void PathChecker(string path)
-        {
-            try
-            {
-                RunProgram(path);
+                path = Console.ReadLine();
             }
 
-            catch (Exception)
+            while (!File.Exists(path))
             {
+                Console.WriteLine("File not found!");
                 Thread.Sleep(1000);
                 Console.Clear();
                 Console.WriteLine("Please insert a proper path from your computer: ");
                 path = Console.ReadLine();
-                PathChecker(path);
             }
+
+            return path;
         }
 
         private static void RunProgram(string path)
         {
-            if (!File.Exists(path))
-            {
-                Console.WriteLine("File not found!");
-            }
             var fileStream = new FileStream(path, FileMode.Open);
 
             var data = DataChecker.ReadFileHeader(fileStream);
@@ -56,8 +51,15 @@ namespace MetadataReader
             Console.WriteLine($"{fileResultString}");
 
             var resolution = DataChecker.GetResolution(fileStream, fileType);
-            Console.WriteLine($"The resolution is {resolution}\n");
-            Console.WriteLine(DataChecker.GetImageInfo(fileStream));
+            Console.WriteLine($"The resolution is {resolution}.\n");
+            if (fileType == Filetypes.PNG)
+            {
+                foreach (var chunk in DataChecker.GetImageInfo(fileStream))
+                {
+                    Console.WriteLine($"Chunk number {chunk.ChunkNumber}: type/name: {chunk.Type}, chunksize: {chunk.Size} bytes.");
+                }
+            }
+
             Console.ReadKey();
         }
     }
