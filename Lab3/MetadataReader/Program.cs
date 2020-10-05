@@ -53,10 +53,8 @@ namespace MetadataReader
                 ? $"This file is a {fileResult}.\n"
                 : "This file is invalid!";
 
-
             Console.WriteLine($"{fileResultString}");
 
-            
             DataChecker.GetResolution(fileStream, fileResult);
             Console.ReadKey();
         }

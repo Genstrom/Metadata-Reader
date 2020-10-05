@@ -10,12 +10,10 @@ namespace MetadataReader
         BMP,
         Invalid
     }
-
     public static class DataChecker
     {
         private static readonly byte[] BmpSignature = {0x42, 0x4D};
         private static readonly byte[] PngSignature = {0x89, 0x50, 0x4E, 0x47, 0x0D, 0x0A, 0x1A, 0x0A};
-
         public static Filetypes FileChecker(byte[] data)
         {
             switch (data[0])
@@ -37,7 +35,6 @@ namespace MetadataReader
                     return Filetypes.Invalid;
             }
         }
-
         public static void GetResolution(FileStream fileStream, Filetypes filetype)
         {
             var data = new byte[8];
@@ -69,16 +66,12 @@ namespace MetadataReader
                     break;
             }
         }
-
         public static byte[] ReadFileData(FileStream fileStream)
         {
             var data = new byte[8];
-
             fileStream.Read(data, 0, 8);
-
             return data;
         }
-
         private static void GetChunkInfo(FileStream fileStream)
         {
             var sizeArray = new byte[4];
@@ -86,7 +79,6 @@ namespace MetadataReader
             var size = 0;
             var offset = 8;
             var chunkNumber = 1;
-
 
             while (offset + size < fileStream.Length)
             {
@@ -101,7 +93,6 @@ namespace MetadataReader
                 Console.WriteLine($"Chunk {chunkNumber}: type/name: {typeString}, chunksize: {size} bytes.");
                 chunkNumber++;
             }
-
             fileStream.Close();
         }
     }
