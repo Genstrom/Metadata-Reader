@@ -46,16 +46,18 @@ namespace MetadataReader
             }
             var fileStream = new FileStream(path, FileMode.Open);
 
-            var data = DataChecker.ReadFileData(fileStream);
+            var data = DataChecker.ReadFileHeader(fileStream);
 
-            var fileResult = DataChecker.FileChecker(data);
-            var fileResultString = !Equals(fileResult, Filetypes.Invalid)
-                ? $"This file is a {fileResult}.\n"
+            var fileType = DataChecker.FileChecker(data);
+            var fileResultString = fileType != Filetypes.Invalid
+                ? $"This file is a {fileType}.\n"
                 : "This file is invalid!";
 
             Console.WriteLine($"{fileResultString}");
 
-            DataChecker.GetResolution(fileStream, fileResult);
+            var resolution = DataChecker.GetResolution(fileStream, fileType);
+            Console.WriteLine($"The resolution is {resolution}\n");
+            Console.WriteLine(DataChecker.GetImageInfo(fileStream));
             Console.ReadKey();
         }
     }
