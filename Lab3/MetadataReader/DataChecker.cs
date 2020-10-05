@@ -54,7 +54,7 @@ namespace MetadataReader
                     width = data[0] + (data[1] << 8) + (data[2] << 16) + (data[3] << 24);
                     height = data[4] + (data[5] << 8) + (data[6] << 16) + (data[7] << 24);
 
-                    Console.WriteLine($"The resolution is: {width}x{height}.");
+                    Console.WriteLine($"The resolution is: {width}x{height}.\n");
                     break;
                 case Filetypes.PNG:
                     fileStream.Seek(16, SeekOrigin.Begin);
@@ -64,7 +64,8 @@ namespace MetadataReader
                     width = data[3] + (data[2] << 8) + (data[1] << 16) + (data[0] << 24);
                     height = data[7] + (data[6] << 8) + (data[5] << 16) + (data[4] << 24);
 
-                    Console.WriteLine($"The resolution is: {width}x{height}.");
+                    Console.WriteLine($"The resolution is: {width}x{height}.\n");
+                    GetChunkInfo(fileStream);
                     break;
             }
         }
@@ -78,7 +79,7 @@ namespace MetadataReader
             return data;
         }
 
-        public static void GetChunkInfo(FileStream fileStream)
+        private static void GetChunkInfo(FileStream fileStream)
         {
             var sizeArray = new byte[4];
             var typeArray = new byte[4];
@@ -100,6 +101,8 @@ namespace MetadataReader
                 Console.WriteLine($"Chunk {chunkNumber}: type/name: {typeString}, chunksize: {size} bytes.");
                 chunkNumber++;
             }
+
+            fileStream.Close();
         }
     }
 }

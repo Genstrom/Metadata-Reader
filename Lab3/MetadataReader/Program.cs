@@ -16,6 +16,7 @@ namespace MetadataReader
             {
                 Console.WriteLine("Input filepath to be read: ");
                 var path = Console.ReadLine();
+                Console.WriteLine();
                 PathChecker(path);
             }
         }
@@ -49,14 +50,14 @@ namespace MetadataReader
 
             var fileResult = DataChecker.FileChecker(data);
             var fileResultString = !Equals(fileResult, Filetypes.Invalid)
-                ? $"This file is a {fileResult}."
+                ? $"This file is a {fileResult}.\n"
                 : "This file is invalid!";
 
 
             Console.WriteLine($"{fileResultString}");
 
+            
             DataChecker.GetResolution(fileStream, fileResult);
-            DataChecker.GetChunkInfo(fileStream);
             Console.ReadKey();
         }
     }
