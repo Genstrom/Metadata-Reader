@@ -11,3 +11,29 @@ C:\Users\Tommy\Desktop\Labbar\Lab3\Lab3\MetadataReader\obj\Debug\netcoreapp3.1\M
 C:\Users\Tommy\Desktop\Labbar\Lab3\Lab3\MetadataReader\obj\Debug\netcoreapp3.1\MetadataReader.dll
 C:\Users\Tommy\Desktop\Labbar\Lab3\Lab3\MetadataReader\obj\Debug\netcoreapp3.1\MetadataReader.pdb
 C:\Users\Tommy\Desktop\Labbar\Lab3\Lab3\MetadataReader\obj\Debug\netcoreapp3.1\MetadataReader.genruntimeconfig.cache
+C:\Users\Gabriel\Desktop\This is where I put my labs\Lab3\MetadataReader\bin\Debug\netcoreapp3.1\MetadataReader.exe
+C:\Users\Gabriel\Desktop\This is where I put my labs\Lab3\MetadataReader\bin\Debug\netcoreapp3.1\MetadataReader.deps.json
+C:\Users\Gabriel\Desktop\This is where I put my labs\Lab3\MetadataReader\bin\Debug\netcoreapp3.1\MetadataReader.runtimeconfig.json
+C:\Users\Gabriel\Desktop\This is where I put my labs\Lab3\MetadataReader\bin\Debug\netcoreapp3.1\MetadataReader.runtimeconfig.dev.json
+C:\Users\Gabriel\Desktop\This is where I put my labs\Lab3\MetadataReader\bin\Debug\netcoreapp3.1\MetadataReader.dll
+C:\Users\Gabriel\Desktop\This is where I put my labs\Lab3\MetadataReader\bin\Debug\netcoreapp3.1\MetadataReader.pdb
+C:\Users\Gabriel\Desktop\This is where I put my labs\Lab3\MetadataReader\obj\Debug\netcoreapp3.1\MetadataReader.csprojAssemblyReference.cache
+C:\Users\Gabriel\Desktop\This is where I put my labs\Lab3\MetadataReader\obj\Debug\netcoreapp3.1\MetadataReader.AssemblyInfoInputs.cache
+C:\Users\Gabriel\Desktop\This is where I put my labs\Lab3\MetadataReader\obj\Debug\netcoreapp3.1\MetadataReader.AssemblyInfo.cs
+C:\Users\Gabriel\Desktop\This is where I put my labs\Lab3\MetadataReader\obj\Debug\netcoreapp3.1\MetadataReader.csproj.CoreCompileInputs.cache
+C:\Users\Gabriel\Desktop\This is where I put my labs\Lab3\MetadataReader\obj\Debug\netcoreapp3.1\MetadataReader.dll
+C:\Users\Gabriel\Desktop\This is where I put my labs\Lab3\MetadataReader\obj\Debug\netcoreapp3.1\MetadataReader.pdb
+C:\Users\Gabriel\Desktop\This is where I put my labs\Lab3\MetadataReader\obj\Debug\netcoreapp3.1\MetadataReader.genruntimeconfig.cache
+C:\Users\Gabriel\Desktop\labmapp\Lab3\MetadataReader\bin\Debug\netcoreapp3.1\MetadataReader.exe
+C:\Users\Gabriel\Desktop\labmapp\Lab3\MetadataReader\bin\Debug\netcoreapp3.1\MetadataReader.deps.json
+C:\Users\Gabriel\Desktop\labmapp\Lab3\MetadataReader\bin\Debug\netcoreapp3.1\MetadataReader.runtimeconfig.json
+C:\Users\Gabriel\Desktop\labmapp\Lab3\MetadataReader\bin\Debug\netcoreapp3.1\MetadataReader.runtimeconfig.dev.json
+C:\Users\Gabriel\Desktop\labmapp\Lab3\MetadataReader\bin\Debug\netcoreapp3.1\MetadataReader.dll
+C:\Users\Gabriel\Desktop\labmapp\Lab3\MetadataReader\bin\Debug\netcoreapp3.1\MetadataReader.pdb
+C:\Users\Gabriel\Desktop\labmapp\Lab3\MetadataReader\obj\Debug\netcoreapp3.1\MetadataReader.csprojAssemblyReference.cache
+C:\Users\Gabriel\Desktop\labmapp\Lab3\MetadataReader\obj\Debug\netcoreapp3.1\MetadataReader.AssemblyInfoInputs.cache
+C:\Users\Gabriel\Desktop\labmapp\Lab3\MetadataReader\obj\Debug\netcoreapp3.1\MetadataReader.AssemblyInfo.cs
+C:\Users\Gabriel\Desktop\labmapp\Lab3\MetadataReader\obj\Debug\netcoreapp3.1\MetadataReader.csproj.CoreCompileInputs.cache
+C:\Users\Gabriel\Desktop\labmapp\Lab3\MetadataReader\obj\Debug\netcoreapp3.1\MetadataReader.dll
+C:\Users\Gabriel\Desktop\labmapp\Lab3\MetadataReader\obj\Debug\netcoreapp3.1\MetadataReader.pdb
+C:\Users\Gabriel\Desktop\labmapp\Lab3\MetadataReader\obj\Debug\netcoreapp3.1\MetadataReader.genruntimeconfig.cache

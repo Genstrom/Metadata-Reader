@@ -1,25 +1,43 @@
 ﻿using System;
 using System.IO;
+using System.Threading;
 
 namespace MetadataReader
 {
-    class Program
+    internal class Program
     {
-        static void Main(string[] args)
-        { 
+        private static void Main(string[] args)
+        {
             if (args.Length != 0)
             {
-                RunProgram(args[0]);
+                PathChecker(args[0]);
             }
             else
             {
                 Console.WriteLine("Input filepath to be read: ");
-                string path = Console.ReadLine();
-                RunProgram(path);
+                var path = Console.ReadLine();
+                PathChecker(path);
             }
         }
 
-        static void RunProgram(string path)
+        private static void PathChecker(string path)
+        {
+            try
+            {
+                RunProgram(path);
+            }
+
+            catch (Exception)
+            {
+                Thread.Sleep(1000);
+                Console.Clear();
+                Console.WriteLine("Please insert a proper path from your computer: ");
+                path = Console.ReadLine();
+                PathChecker(path);
+            }
+        }
+
+        private static void RunProgram(string path)
         {
             if (!File.Exists(path))
             {
@@ -27,17 +45,19 @@ namespace MetadataReader
             }
             var fileStream = new FileStream(path, FileMode.Open);
 
-            byte[] data = Datachecker.ReadFileData(fileStream);
+            var data = DataChecker.ReadFileData(fileStream);
 
-            var fileResult = Datachecker.FileChecker(data);
-            var s = !Equals(fileResult, Filetypes.Invalid)
+            var fileResult = DataChecker.FileChecker(data);
+            var fileResultString = !Equals(fileResult, Filetypes.Invalid)
                 ? $"This file is a {fileResult}."
-                : $"This file is invalid!";
+                : "This file is invalid!";
 
-            Console.WriteLine($"{s}");
 
-            Datachecker.GetResolution(fileStream, fileResult);
-            Datachecker.GetChunkInfo(fileStream);
+            Console.WriteLine($"{fileResultString}");
+
+            DataChecker.GetResolution(fileStream, fileResult);
+            DataChecker.GetChunkInfo(fileStream);
+            Console.ReadKey();
         }
     }
 }
