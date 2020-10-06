@@ -8,7 +8,7 @@ namespace MetadataReader
     {
         private static void Main(string[] args)
         {
-            RunProgram(PathChecker(args));
+            LoadData(PathChecker(args));
         }
 
         private static string PathChecker(string[] args)
@@ -37,7 +37,7 @@ namespace MetadataReader
             return path;
         }
 
-        private static void RunProgram(string path)
+        private static void LoadData(string path)
         {
             var fileStream = new FileStream(path, FileMode.Open);
 
@@ -52,6 +52,7 @@ namespace MetadataReader
 
             var resolution = DataChecker.GetResolution(fileStream, fileType);
             Console.WriteLine($"The resolution is {resolution}.\n");
+
             if (fileType == Filetypes.PNG)
             {
                 foreach (var chunk in DataChecker.GetImageInfo(fileStream))
